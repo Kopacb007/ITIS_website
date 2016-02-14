@@ -17,8 +17,14 @@
     <title>Home - ITTS "O. Belluzzi - L. da Vinci"</title>
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.css" rel="stylesheet">
     <!-- Animate CSS -->
     <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Font CSS -->
     <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Link Swiper's CSS -->
@@ -30,11 +36,11 @@
 <body>
     <!-- ################## PAGE ##################### -->
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top shadow-bottom" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -43,16 +49,23 @@
                 <a class="navbar-brand" href="index.html">ITTS</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="top-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">News &amp; Circolari</a>
+                    </li>
+                    <li>
+                        <a href="#">Indirizzi</a>
+                    </li>
+                    <li>
+                        <a href="#">Downloads</a>
+                    </li>
                     <li>
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Log in <i class="fa fa-sign-in"></i></a>
+                        
                     </li>
                 </ul>
             </div>
@@ -61,7 +74,7 @@
         <!-- /.container -->
     </nav>
     <!-- Swiper -->
-    <div class="swiper-container">
+    <div class="swiper-container shadow-bottom">
         <div class="swiper-wrapper">
             <div class="swiper-slide" style="background-image:url(img/carousel-item-1.jpg)">
             </div>
@@ -79,72 +92,154 @@
             <div class="carousel-text-container col-xs-8 col-xs-offset-2 text-center">
                 <div class="va-container va-container-w va-container-h">
                     <div class="va-middle">
-                        <p>Lorem ipsum dolorsitamet, consectetur adipisicing elit. Ad, cumque!</p>
+                        <h1>WELCOME TO OUR SCHOOL</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Page Content -->
-    <div class="container">
-        <hr>
+    <div class="container-fluid">
         <div id="news-circolari" class="row">
             <div class="col-sm-6">
-                <h2 class="text-center">News</h2>
-                <ul class="custom-ul">
-                    <li>
-                        <img src="http://lorempixum.com/100/100/nature/1" />
-                        <h3>Headline</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="http://lorempixum.com/100/100/nature/2" />
-                        <h3>Headline</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="http://lorempixum.com/100/100/nature/3" />
-                        <h3>Headline</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                </ul>
+                <h1 class="underlined text-center">News</h1>
+                <!--Image Card-->
+                <div class="col-md-6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                                <div class="mask waves-effect"></div>
+                            </div>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                        </div>
+                        <div class="card-action">
+                            <a>This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Image Card-->
+                <!--Image Card-->
+                <div class="col-md-6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                                <div class="mask waves-effect"></div>
+                            </div>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                        </div>
+                        <div class="card-action">
+                            <a>This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Image Card-->
+                <!--Image Card-->
+                <div class="col-md-6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                                <div class="mask waves-effect"></div>
+                            </div>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                        </div>
+                        <div class="card-action">
+                            <a>This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Image Card-->
             </div>
             <div class="col-sm-6">
-                <h2 class="text-center">Circolari</h2>
-                <ul class="custom-ul">
-                    <li>
-                        <img src="http://lorempixum.com/100/100/nature/4" />
-                        <h3>Headline</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="http://lorempixum.com/100/100/nature/5" />
-                        <h3>Headline</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                    <li>
-                        <img src="http://lorempixum.com/100/100/nature/6" />
-                        <h3>Headline</h3>
-                        <p>Lorem ipsum dolor sit amet...</p>
-                    </li>
-                </ul>
+                <h1 class="underlined text-center">Circolari</h1>
+                <!--Image Card-->
+                <div class="col-md-6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                                <div class="mask waves-effect"></div>
+                            </div>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                        </div>
+                        <div class="card-action">
+                            <a>This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Image Card-->
+                <!--Image Card-->
+                <div class="col-md-6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                                <div class="mask waves-effect"></div>
+                            </div>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                        </div>
+                        <div class="card-action">
+                            <a>This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Image Card-->
+                <!--Image Card-->
+                <div class="col-md-6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                                <div class="mask waves-effect"></div>
+                            </div>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                        </div>
+                        <div class="card-action">
+                            <a>This is a link</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Image Card-->
             </div>
         </div>
         <!-- /.row -->
         <hr>
         <div id="indirizzi" class="row">
-            <div class="col-sm-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+            <div class="container text-center">
+                <h1 class="underlined">Indirizzi</h1>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+                <img class="img-circle img-responsive center-block" src="http://placehold.it/300x300" alt="">
                 <h2>Marketing Box #1</h2>
                 <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
             </div>
-            <div class="col-sm-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+            <div class="col-xs-12 col-md-4 text-center">
+                <img class="img-circle img-responsive center-block" src="http://placehold.it/300x300" alt="">
                 <h2>Marketing Box #2</h2>
                 <p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
             </div>
-            <div class="col-sm-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+            <div class="col-xs-12 col-md-4 text-center">
+                <img class="img-circle img-responsive center-block" src="http://placehold.it/300x300" alt="">
                 <h2>Marketing Box #3</h2>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
             </div>
@@ -152,30 +247,108 @@
         <!-- /.row -->
         <hr>
         <div id="downloads" class="row">
-            <div class="container">
-                <div class="col-md-4">
-                    <a class="btn btn-default" href="#">CONTENT</a>
-                </div>
-                <div class="col-md-4">
-                    <a class="btn btn-default" href="#">CONTENT</a>
-                </div>
-                <div class="col-md-4">
-                    <a class="btn btn-default" href="#">CONTENT</a>
-                </div>
+            <div class="container text-center">
+                <h1 class="underlined">Downloads</h1>
+            </div>
+            <div class="col-md-6">
+                <a href="https://play.google.com/store/apps/details?id=com.filippoalbertini.scuolamobile">
+                    <img class="img-responsive app-img center-block" alt="Get it on Google Play" src="img/google-play-badge.png" />
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="https://itunes.apple.com/it/app/scuolamobile-app/id978006941?mt=8">
+                    <img class="img-responsive app-img center-block" alt="Get it on App Store" src="img/app-store-badge.svg" />
+                </a>
             </div>
         </div>
         <!-- /.row -->
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
     </div>
-    <!-- /.container -->
+    <!-- /.container-fluid -->
+    <!--Footer section-->
+    <footer class="page-footer elegant-color center-on-small-only">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-3">
+                    <p class="column-title white-text">About Material Design</p>
+                    <div class="column-content">
+                        <p class="thin-100 white-text">Material Design (codenamed Quantum Paper) is a design language developed by Google.
+                            <br>
+                            <br> Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>
+                    </div>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-2 col-md-offset-1">
+                    <p class="column-title white-text">USEFUL LINKS</p>
+
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">About MDB</a></li>
+                        <li><a href="#">Suport</a></li>
+                        <li><a href="#">Bug Report</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
+
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-2">
+                    <p class="column-title white-text">MDB Free Popular</p>
+
+                    <ul>
+                        <li><a href="#">Animations</a></li>
+                        <li><a href="#">Forms</a></li>
+                        <li><a href="#">Carousel</a></li>
+                        <li><a href="#">Buttons</a></li>
+                        <li><a href="#">Parallax</a></li>
+                    </ul>
+                </div>
+                <!--/.Third column-->
+
+                <!--Fourth column-->
+                <div class="col-md-2">
+                    <p class="column-title white-text">MDB Pro Popular</p>
+
+                    <ul>
+                        <li><a href="#">E-commerce</a></li>
+                        <li><a href="#">Cards</a></li>
+                        <li><a href="#">SideNav</a></li>
+                        <li><a href="#">MaterialBox</a></li>
+                        <li><a href="#">Social Buttons</a></li>
+                    </ul>
+                </div>
+                <!--/.Fourth column-->
+
+            </div>
+        </div>
+        <div class="call-to-action inline-block">
+            <ul class="list-inline">
+                <li>
+                    <h5 class="white-text">Register for free </h5></li>
+                <li> <a class="btn btn-danger waves-effect waves-light">GET STARTED!</a></li>
+            </ul>
+        </div>
+
+        <div class="social-section text-center">
+            <a class="btn-sm-full fb-bg rectangle waves-effect waves-light"><i class="fa fa-facebook"> </i> <span>Facebook</span> </a>
+            <a class="btn-sm-full tw-bg rectangle waves-effect waves-light"><i class="fa fa-twitter"> </i> <span>Twitter</span></a>
+            <a class="btn-sm-full gplus-bg rectangle waves-effect waves-light"><i class="fa fa-google-plus"> </i> <span>Google +</span></a>
+            <a class="btn-sm-full comm-bg rectangle waves-effect waves-light"><i class="fa fa-comments"> </i> <span>Forum</span></a>
+        </div>
+
+
+        <div class="footer-copyright text-center rgba-black-light">
+            <div class="container-fluid">
+                © 2016 Copyright
+            </div>
+        </div>
+    </footer>
+    <!--/.Footer section-->
+
     <!-- ################## SCRIPTS ##################### -->
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -183,6 +356,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- Swiper JS -->
     <script src="bower_components/Swiper/dist/js/swiper.min.js"></script>
+    <!-- Material Design Bootstrap -->
+    <script type="text/javascript" src="js/mdb.js"></script>
     <!-- main.js initialising -->
     <script src="js/main.js"></script>
 </body>
