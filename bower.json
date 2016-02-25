@@ -10,6 +10,7 @@
     "bootstrap": "~3.3.6",
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.0",
-    "Swiper": "swiper#^3.3.0"
+    "Swiper": "swiper#^3.3.0",
+    "smooth-scroll": "^1.0.1"
   }
 }
