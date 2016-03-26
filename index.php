@@ -26,6 +26,7 @@
     <!-- ################## PAGE ##################### -->
     <!-- Navigation -->
     <?php include(D_TEMPLATE . '/navigation.php') ?>
+    <!-- D_TEMPLATE stands for dynamic_path of the template folder -->
     <!-- Swiper -->
     <div class="swiper-container shadow-bottom">
         <div class="swiper-wrapper">

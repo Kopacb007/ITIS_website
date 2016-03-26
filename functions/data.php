@@ -35,4 +35,53 @@
 		return $r;
 	}
 
+	function data_user ($dbc, $id) {
+
+		if (is_numeric($id)) {
+			$cond = "WHERE id = '$id'";
+		} else {
+			$cond = "WHERE first = '$id'";
+		}
+
+		$q = "SELECT * FROM users $cond";
+		
+		$r = mysqli_query($dbc, $q);
+
+		$data = mysqli_fetch_assoc($r);
+
+		$data['fullname'] = $data['first'] . ' ' . $data['last'];
+
+		$data['fullname_reverse'] = $data['last'] . ' ' . $data['first'];
+		$data['img_source'] = 'src="'.$data['avatar'].'"';
+
+		return $data;
+	}
+
+	/**
+	 * Get the customer's IP address.
+	 *
+	 * @return string
+	 */
+	function getIpAddress() {
+	    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+	        return $_SERVER['HTTP_CLIENT_IP'];
+	    } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+	        $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+	        return trim($ips[count($ips) - 1]);
+	    } else {
+	        return $_SERVER['REMOTE_ADDR'];
+	    }
+	}
+
+	function get_page ($dbc, $id) {
+
+		$q = "SELECT * FROM news WHERE id = $id";
+		$r = mysqli_query($dbc, $q);
+
+		$data = mysqli_fetch_assoc($r); 
+		//mysqli_fetch_assoc() means => arr['name'] not the arr[0]
+
+		return $data;
+	}
+
  ?>
