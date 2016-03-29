@@ -73,9 +73,9 @@
 	    }
 	}
 
-	function get_page ($dbc, $id) {
+	function get_page ($dbc, $id, $type) {
 
-		$q = "SELECT * FROM news WHERE id = $id";
+		$q = "SELECT * FROM $type WHERE id = $id";
 		$r = mysqli_query($dbc, $q);
 
 		$data = mysqli_fetch_assoc($r); 
@@ -84,4 +84,31 @@
 		return $data;
 	}
 
+	function get_users ($dbc) {
+		$q = "SELECT * FROM users";
+		$r = mysqli_query($dbc, $q);
+
+		return $r;
+	}
+
+	function get_materie ($dbc) {
+		$q = "SELECT * FROM materie";
+		$r = mysqli_query($dbc, $q);
+
+		return $r;
+	}
+    
+    function get_users_classe ($dbc, $id) {
+		$q = "SELECT 
+        classi.id, 
+        classi.numero, 
+        classi.lettera,
+        classi.indirizzo_id 
+        FROM classi
+        INNER JOIN users ON classi.id = users.classe_id
+        WHERE users.id = $id";
+		$r = mysqli_query($dbc, $q);
+
+		return $r;
+	}
  ?>

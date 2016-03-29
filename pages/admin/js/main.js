@@ -16,5 +16,17 @@ function showPage(str) {
             }
         };
         
-        xmlhttp.send(params);
-    }
+    xmlhttp.send(params);
+}
+
+function goTo(url) {
+
+	 $.ajax({
+	  url: url,
+	  cache: false,
+	  success: function(result){
+	    $("#content").html(result);
+	  }
+	});
+  // $("#content").load("maincontent.php");
+}

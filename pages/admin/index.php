@@ -10,7 +10,6 @@ if ((!isset($_SESSION['userid'])) || ($_SESSION['type'] !== 'admin'))
     header('Location: ../login/index.php');
 }
 
-
  ?>
 
 <?php include('config/setup.php') ?>
@@ -92,14 +91,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu">
             <!-- Optionally, you can add icons to the links -->
             <li class="treeview">
+              <a href="#"><i class="fa fa-save"></i><span>Admin</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="?page=pages">Pages</a></li>
+                <li><a href="?page=addpage">Add page</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
               <a href="#"><i class="fa fa-eye"></i><span>Visualizza</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Voti</a></li>
-                <li><a href="#">Voti per obiettivi</a></li>
-                <li><a href="#">Assenze</a></li>
+                <li><a href="?page=voti">Voti</a></li>
+                <li><a href="#">Voti per obiettivo</a></li>
+                <li><a href="?page=assenze">Assenze</a></li>
                 <li><a href="#">Assenze in dettaglio</a></li>
                 <li><a href="#">Indicatori</a></li>
-                <li><a href="#">Argomenti svolti</a></li>
+                <li><a href="?page=argomenti">Argomenti svolti</a></li>
                 <li><a href="#">Compiti assegnati</a></li>
                 
                 <li><a href="#">Valutazione primo periodo</a></li>
@@ -161,105 +167,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <section class="content" id="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box box-solid box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Info</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  </div><!-- /.box-tools -->
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <p>
-                    <?php 
-                      $date = getdate(); 
-                      echo 'Ultimo accesso il: '.$date['mday'].'/'.$date['mon'].'/'.$date['year'];
-                      echo ' alle ore: '.$date['hours'].':'.$date['minutes'];
-                    ?> 
-                    dall'ip <?php echo $user['ip']; ?>
-                  </p>
-                </div><!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
 
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="box box-solid box-warning">
+          <?php 
 
-                    <div class="box-header with-border">
-                      <h3 class="box-title">News</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
+            $page = isset($_GET['page']) ? trim($_GET['page']) : '' ;
 
-                    <div class="box-body">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <a href="template/addpage.php"><i class="fa fa-file"></i></a>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <!--Card-->
-                        <?php 
-                          while ($card = mysqli_fetch_assoc($news)) { ?>
-                          
-                          <?php include('template/card.php') ?>
-
-                        <?php } ?>
-                        <!--/Card-->
-                      </div>
-                      
-                    </div><!-- /.box-body -->
-                  </div>
-                  <!-- /.box -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.col -->
-            <div class="col-sm-6">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="box box-solid box-success">
-
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Circolari</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-
-                    <div class="box-body">
-                      <!--Card-->
-                      <?php 
-                        while ($card = mysqli_fetch_assoc($circolari)) { ?>
-                        
-                        <?php include('template/card.php') ?>
-
-                      <?php } ?>
-                      <!--Card-->
-                    </div><!-- /.box-body -->
-                  </div>
-                  <!-- /.box -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-
-          <!-- Your Page Content Here -->
+            switch ($page) {
+                case 'pages':
+                    include('maincontent.php');
+                    break;
+                case 'addpage':
+                    include('addpage.php');
+                    break;
+                case 'edit':
+                    include('editForm.php');
+                    break;
+                case 'voti':
+                    include('voti.php');
+                    break;
+                case 'assenze':
+                    include('assenze.php');
+                    break;
+                case 'argomenti':
+                    include('argomenti.php');
+                    break;
+                    
+                default:
+                    include('maincontent.php');
+                    break;
+            }
+           ?>
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
