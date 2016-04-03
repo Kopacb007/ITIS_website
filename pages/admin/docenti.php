@@ -3,25 +3,19 @@
 if (isset($_POST['show'])) {
 
 	$classe_id = $_POST['classe_id'];
-	$materia_id = $_POST['materia_id'];
-
-	if ($materia_id === "all_materia") {
-		$cond = "WHERE classi.id = $classe_id GROUP BY argomenti.data DESC";
-	} else {
-		$cond = "WHERE classi.id = $classe_id AND materie.id = '$materia_id' GROUP BY Data DESC";
-	}
+    
+    $cond = "WHERE classi.id = $classe_id GROUP BY docenti.cognome";
 
 	$q = "SELECT
-        argomenti.data AS Data, 
-        argomenti.descrizione AS Descrizione, 
-        argomenti.modulo AS 'Modulo Didattico', 
-        CONCAT(docenti.cognome, ' ', docenti.nome) AS 'Docente', 
-        materie.name AS Materia, 
-        argomenti.allegati AS Allegati
-        FROM argomenti 
-        INNER JOIN classi ON classi.id = argomenti.classe_id
-        INNER JOIN docenti ON docenti.id = argomenti.docente_id
-        INNER JOIN materie ON materie.id = argomenti.materia_id
+        docenti.cognome AS Cognome, 
+        docenti.nome AS Nome, 
+        CONCAT(materie.name, ' ', materie.id) AS Materia, 
+        docenti.ricevimento AS Ricevimento, 
+        docenti.annotazioni AS Annotazioni
+        FROM docenti 
+        INNER JOIN materie ON materie.id = docenti.materia_id
+        INNER JOIN insegnamenti ON docenti.id = insegnamenti.docente_id
+        INNER JOIN classi ON classi.id = insegnamenti.classe_id
         $cond";
 	$r = mysqli_query($dbc, $q) or die(mysql_error());
 
@@ -34,7 +28,7 @@ if (isset($_POST['show'])) {
 
         <div class="box box-solid box-info">
             <div class="box-header with-border text-center">
-                <h3 class="box-title">Argomenti Form</h3>
+                <h3 class="box-title">Docenti Form</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form method="post" action="">
@@ -54,23 +48,6 @@ if (isset($_POST['show'])) {
                                     <?php echo $classe['numero'] ?>
                                     <?php echo $classe['lettera'] ?> 
                                     <?php echo $classe['indirizzo_id'] ?>
-                                </option>
-                        <?php } ?>
-
-                    </select>
-                    </div>
-                    <div class="form-group">
-                    <label>Materia:</label>
-                    <select name="materia_id" class="short">
-                        <option value="all_materia">
-                            All materia
-                        </option>
-
-                        <?php 
-                            $materie = get_materie($dbc);
-                            while ($materia = mysqli_fetch_assoc($materie)) { ?>
-                                <option value=<?php echo "\"".$materia['id']."\"" ?>>
-                                <?php echo $materia['name'] . ", " . $materia['id'] ?>
                                 </option>
                         <?php } ?>
 

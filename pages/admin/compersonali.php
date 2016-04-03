@@ -2,26 +2,16 @@
 
 if (isset($_POST['show'])) {
 
-	$classe_id = $_POST['classe_id'];
-	$materia_id = $_POST['materia_id'];
-
-	if ($materia_id === "all_materia") {
-		$cond = "WHERE classi.id = $classe_id GROUP BY argomenti.data DESC";
-	} else {
-		$cond = "WHERE classi.id = $classe_id AND materie.id = '$materia_id' GROUP BY Data DESC";
-	}
+	$user_id = $_POST['user_id'];
+    
+    $cond = "WHERE users.id = $user_id GROUP BY compersonali.data DESC";
 
 	$q = "SELECT
-        argomenti.data AS Data, 
-        argomenti.descrizione AS Descrizione, 
-        argomenti.modulo AS 'Modulo Didattico', 
-        CONCAT(docenti.cognome, ' ', docenti.nome) AS 'Docente', 
-        materie.name AS Materia, 
-        argomenti.allegati AS Allegati
-        FROM argomenti 
-        INNER JOIN classi ON classi.id = argomenti.classe_id
-        INNER JOIN docenti ON docenti.id = argomenti.docente_id
-        INNER JOIN materie ON materie.id = argomenti.materia_id
+        compersonali.data AS Data, 
+        compersonali.comunicazione AS Comunicazione, 
+        compersonali.allegati AS Allegati
+        FROM compersonali 
+        INNER JOIN users ON users.id = compersonali.user_id
         $cond";
 	$r = mysqli_query($dbc, $q) or die(mysql_error());
 
@@ -34,13 +24,13 @@ if (isset($_POST['show'])) {
 
         <div class="box box-solid box-info">
             <div class="box-header with-border text-center">
-                <h3 class="box-title">Argomenti Form</h3>
+                <h3 class="box-title">Comunicazioni Personali Form</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form method="post" action="">
                     <div class="form-group">
                     <label>User:</label>
-                    <select name="classe_id">
+                    <select name="user_id">
 
                         <?php 
                             $users = get_users($dbc);
@@ -48,7 +38,7 @@ if (isset($_POST['show'])) {
                                 ($user = mysqli_fetch_assoc($users)) and
                                 ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
                                 ) { ?>
-                                <option value=<?php echo "\"".$classe['id']."\"" ?>>
+                                <option value=<?php echo "\"".$user['id']."\"" ?>>
                                     <?php echo $user['first'] ?>
                                     <?php echo $user['last'] ?>,
                                     <?php echo $classe['numero'] ?>
@@ -59,23 +49,7 @@ if (isset($_POST['show'])) {
 
                     </select>
                     </div>
-                    <div class="form-group">
-                    <label>Materia:</label>
-                    <select name="materia_id" class="short">
-                        <option value="all_materia">
-                            All materia
-                        </option>
-
-                        <?php 
-                            $materie = get_materie($dbc);
-                            while ($materia = mysqli_fetch_assoc($materie)) { ?>
-                                <option value=<?php echo "\"".$materia['id']."\"" ?>>
-                                <?php echo $materia['name'] . ", " . $materia['id'] ?>
-                                </option>
-                        <?php } ?>
-
-                    </select>
-                    </div>
+                    
                     <div class="row">
                     <div class="col-xs-6">
                         <a href="#" onclick="goTo('maincontent.php')" class="btn btn-danger"><span><i class="fa fa-chevron-left"></i></span> Back</a>

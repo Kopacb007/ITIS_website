@@ -4,7 +4,7 @@ if (isset($_POST['show'])) {
 
 	$user_id = $_POST['user_id'];
 
-    $cond = "WHERE users.id = $user_id";
+    $cond = "WHERE users.id = $user_id GROUP BY assenze.data DESC";
 	
 	$q = "SELECT 
 		tipo_assenza.id AS Tipo, 
@@ -13,14 +13,7 @@ if (isset($_POST['show'])) {
 		assenze.data_fine AS 'Data Fine', 
 		assenze.orario_fine AS 'Orario Fine', 
 		giustificazioni.data AS 'Data Giustificazione',
-		(
-            SELECT CONCAT(docenti.cognome, ' ', docenti.nome) 
-            FROM docenti 
-            INNER JOIN giustificazioni ON giustificazioni.docente_id = docenti.id
-            INNER JOIN assenze ON assenze.giustificazione_id = giustificazioni.id
-            INNER JOIN users ON assenze.user_id = users.id
-            $cond
-        ) AS 'Giustificato Da',
+		CONCAT(docenti.cognome, ' ', docenti.nome) AS 'Giustificato Da',
         tipo_giustificazione.id AS 'Giustificato Tipo'
 		FROM users 
 		INNER JOIN assenze ON users.id = assenze.user_id
@@ -51,10 +44,17 @@ if (isset($_POST['show'])) {
 
                     <?php 
                         $users = get_users($dbc);
-                        while ($user = mysqli_fetch_assoc($users)) { ?>
-                            <option value=<?php echo "\"".$user['id']."\"" ?>>
-                            <?php echo $user['first'] ?> <?php echo $user['last'] ?>
-                            </option>
+                            while (
+                                ($user = mysqli_fetch_assoc($users)) and
+                                ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
+                                ) { ?>
+                                <option value=<?php echo "\"".$user['id']."\"" ?>>
+                                    <?php echo $user['first'] ?>
+                                    <?php echo $user['last'] ?>,
+                                    <?php echo $classe['numero'] ?>
+                                    <?php echo $classe['lettera'] ?> 
+                                    <?php echo $classe['indirizzo_id'] ?>
+                                </option>
                     <?php } ?>
 
                 </select>

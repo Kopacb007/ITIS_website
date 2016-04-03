@@ -6,22 +6,21 @@ if (isset($_POST['show'])) {
 	$materia_id = $_POST['materia_id'];
 
 	if ($materia_id === "all_materia") {
-		$cond = "WHERE classi.id = $classe_id GROUP BY argomenti.data DESC";
+		$cond = "WHERE classi.id = $classe_id GROUP BY comunicazioni.data DESC";
 	} else {
-		$cond = "WHERE classi.id = $classe_id AND materie.id = '$materia_id' GROUP BY Data DESC";
+		$cond = "WHERE classi.id = $classe_id AND materie.id = '$materia_id' GROUP BY comunicazioni.data DESC";
 	}
 
 	$q = "SELECT
-        argomenti.data AS Data, 
-        argomenti.descrizione AS Descrizione, 
-        argomenti.modulo AS 'Modulo Didattico', 
+        comunicazioni.data AS Data, 
+        comunicazioni.descrizione AS Descrizione, 
+        comunicazioni.data_evento AS 'Data Evento', 
         CONCAT(docenti.cognome, ' ', docenti.nome) AS 'Docente', 
-        materie.name AS Materia, 
-        argomenti.allegati AS Allegati
-        FROM argomenti 
-        INNER JOIN classi ON classi.id = argomenti.classe_id
-        INNER JOIN docenti ON docenti.id = argomenti.docente_id
-        INNER JOIN materie ON materie.id = argomenti.materia_id
+        materie.name AS Materia
+        FROM comunicazioni 
+        INNER JOIN classi ON classi.id = comunicazioni.classe_id
+        INNER JOIN docenti ON docenti.id = comunicazioni.docente_id
+        INNER JOIN materie ON materie.id = comunicazioni.materia_id
         $cond";
 	$r = mysqli_query($dbc, $q) or die(mysql_error());
 
@@ -34,7 +33,7 @@ if (isset($_POST['show'])) {
 
         <div class="box box-solid box-info">
             <div class="box-header with-border text-center">
-                <h3 class="box-title">Argomenti Form</h3>
+                <h3 class="box-title">Comunicazioni Form</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form method="post" action="">

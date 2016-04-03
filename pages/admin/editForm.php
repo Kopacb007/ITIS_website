@@ -3,10 +3,10 @@
 $id = $_GET['id'];
 $type = $_GET['type'];
 if ($type === 'news') {
-		$cond = 'news';
-	} else {
-		$cond = 'circolari';
-	}
+    $cond = 'news';
+} else {
+    $cond = 'circolari';
+}
 
 if (isset($_POST['save'])) {
 

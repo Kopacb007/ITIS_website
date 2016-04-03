@@ -6,15 +6,15 @@ if (isset($_POST['show'])) {
 	$materia_id = $_POST['materia_id'];
 
 	if ($materia_id === "all_materia") {
-		$cond = "WHERE users.id = $user_id";
+		$cond = "WHERE users.id = $user_id GROUP BY Data DESC";
 	} else {
-		$cond = "WHERE users.id = $user_id AND materie.id = '$materia_id'";
+		$cond = "WHERE users.id = $user_id AND materie.id = '$materia_id' GROUP BY Data DESC";
 	}
 
 	$q = "SELECT 
 		voti.data AS Data, 
 		materie.name AS Materia, 
-		voti.tipo AS Tipo, 
+		voti.tipo_voto AS Tipo, 
 		voti.voto AS Voto, 
 		voti.peso AS Peso, 
 		voti.annotazioni AS Annotazioni,
@@ -43,9 +43,16 @@ if (isset($_POST['show'])) {
 
                         <?php 
                             $users = get_users($dbc);
-                            while ($user = mysqli_fetch_assoc($users)) { ?>
+                            while (
+                                ($user = mysqli_fetch_assoc($users)) and
+                                ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
+                                ) { ?>
                                 <option value=<?php echo "\"".$user['id']."\"" ?>>
-                                <?php echo $user['first'] ?> <?php echo $user['last'] ?>
+                                    <?php echo $user['first'] ?>
+                                    <?php echo $user['last'] ?>,
+                                    <?php echo $classe['numero'] ?>
+                                    <?php echo $classe['lettera'] ?> 
+                                    <?php echo $classe['indirizzo_id'] ?>
                                 </option>
                         <?php } ?>
 
