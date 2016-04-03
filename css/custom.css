@@ -147,6 +147,9 @@ footer .panel {
     display: block;
     margin: 0 auto;
 }
+.break-word {
+    word-wrap: break-word;
+}
 
 /*Social button's colors*/
 .fb-bg {
