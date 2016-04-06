@@ -6,9 +6,9 @@ if (isset($_POST['show'])) {
 	$materia_id = $_POST['materia_id'];
 
 	if ($materia_id === "all_materia") {
-		$cond = "WHERE users.id = $user_id GROUP BY Data DESC";
+		$cond = "WHERE users.id = $user_id ORDER BY Data DESC";
 	} else {
-		$cond = "WHERE users.id = $user_id AND materie.id = '$materia_id' GROUP BY Data DESC";
+		$cond = "WHERE users.id = $user_id AND materie.id = '$materia_id' ORDER BY Data DESC";
 	}
 
 	$q = "SELECT 

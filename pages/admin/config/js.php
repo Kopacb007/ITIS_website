@@ -9,6 +9,8 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../bower_components/AdminLTE/dist/js/app.min.js"></script>
+<!-- Chart JS -->
+<script src="../../plugins/chartjs/chart.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
 

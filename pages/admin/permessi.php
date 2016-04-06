@@ -4,7 +4,7 @@ if (isset($_POST['show'])) {
 
 	$user_id = $_POST['user_id'];
     
-    $cond = "WHERE users.id = $user_id GROUP BY permessi.da_data DESC";
+    $cond = "WHERE users.id = $user_id ORDER BY permessi.da_data DESC";
 
 	$q = "SELECT
         permessi.da_data AS 'Da Data', 

@@ -25,6 +25,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <?php include('template/header.php') ?>
   </head>
 
+  <?php include('config/js.php') ?>
+  
   <body class="hold-transition skin-red sidebar-mini sidebar-collapse">
     <div class="wrapper">
 
@@ -117,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="treeview">
               <a href="#"><i class="fa fa-bar-chart"></i> <span>Statistica</span> <i class="fa fa-angle-left pull-right"></i></a>              
               <ul class="treeview-menu">
-                <li><a href="#">Grafico</a></li>
+                <li><a href="?page=grafico">Grafico</a></li>
                 <li><a href="#">Andamento generale</a></li>
               </ul>
             </li>
@@ -197,6 +199,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 case 'anagrafica':
                     include('anagrafica.php');
                     break;
+                case 'grafico':
+                    include('grafico.php');
+                    break;
                     
                 default:
                     include('maincontent.php');
@@ -218,7 +223,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </footer>
 
     </div><!-- ./wrapper -->
-
-    <?php include('config/js.php') ?>
   </body>
 </html>

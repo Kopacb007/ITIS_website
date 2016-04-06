@@ -4,7 +4,7 @@ if (isset($_POST['show'])) {
 
 	$user_id = $_POST['user_id'];
 
-    $cond = "WHERE users.id = $user_id GROUP BY assenze.data DESC";
+    $cond = "WHERE users.id = $user_id ORDER BY assenze.data DESC";
 	
 	$q = "SELECT 
 		tipo_assenza.id AS Tipo, 

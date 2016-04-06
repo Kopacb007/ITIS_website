@@ -3,21 +3,24 @@
 if (isset($_POST['show'])) {
 
 	$user_id = $_POST['user_id'];
+	$materia_id = $_POST['materia_id'];
     
-    $cond = "WHERE users.id = $user_id ORDER BY provvedimenti.data DESC";
-
-	$q = "SELECT
-        CONCAT(classi.numero, ' ', classi.lettera) AS Classe, 
-        CONCAT(users.first, ' ', users.last) AS Studente, 
-        provvedimenti.data AS Data,
-        provvedimenti.descrizione AS Descrizione,
-        CONCAT(docenti.cognome, ' ', docenti.nome) AS Docente
-        FROM provvedimenti 
-        INNER JOIN classi ON classi.id = provvedimenti.classe_id
-        INNER JOIN users ON users.id = provvedimenti.user_id
-        INNER JOIN docenti ON docenti.id = provvedimenti.docente_id
-        $cond";
+	$q = "SELECT 
+		voti.data AS Data, 
+		materie.name AS Materia
+		FROM users 
+		INNER JOIN voti ON users.id = voti.user_id
+		INNER JOIN materie ON voti.materia_id = materie.id 
+        WHERE users.id = $user_id AND materie.id = '$materia_id' ORDER BY voti.data";
 	$r = mysqli_query($dbc, $q) or die(mysql_error());
+    
+    $q = "SELECT
+		voti.voto AS Voto
+		FROM users 
+		INNER JOIN voti ON users.id = voti.user_id
+		INNER JOIN materie ON voti.materia_id = materie.id 
+        WHERE users.id = $user_id AND materie.id = '$materia_id' ORDER BY voti.data";
+	$voti = mysqli_query($dbc, $q) or die(mysql_error());
 
 }
 
@@ -28,7 +31,7 @@ if (isset($_POST['show'])) {
 
         <div class="box box-solid box-info">
             <div class="box-header with-border text-center">
-                <h3 class="box-title">Provvedimenti Form</h3>
+                <h3 class="box-title">Grafico Form</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form method="post" action="">
@@ -53,7 +56,20 @@ if (isset($_POST['show'])) {
 
                     </select>
                     </div>
-                    
+                    <div class="form-group">
+                    <label>Materia:</label>
+                    <select name="materia_id" class="short">
+                        
+                        <?php 
+                            $materie = get_materie($dbc);
+                            while ($materia = mysqli_fetch_assoc($materie)) { ?>
+                                <option value=<?php echo "\"".$materia['id']."\"" ?>>
+                                <?php echo $materia['name'] . ", " . $materia['id'] ?>
+                                </option>
+                        <?php } ?>
+
+                    </select>
+                    </div>
                     <div class="row">
                     <div class="col-xs-6">
                         <a href="#" onclick="goTo('maincontent.php')" class="btn btn-danger"><span><i class="fa fa-chevron-left"></i></span> Back</a>
@@ -69,7 +85,7 @@ if (isset($_POST['show'])) {
     
     <?php 
 	if (isset($r)) {
-		include('showtable.php');
+		include('showchart.php');
 	}
     ?>
 </div>

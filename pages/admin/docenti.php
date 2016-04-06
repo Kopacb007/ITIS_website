@@ -4,7 +4,7 @@ if (isset($_POST['show'])) {
 
 	$classe_id = $_POST['classe_id'];
     
-    $cond = "WHERE classi.id = $classe_id GROUP BY docenti.cognome";
+    $cond = "WHERE classi.id = $classe_id ORDER BY docenti.cognome";
 
 	$q = "SELECT
         docenti.cognome AS Cognome, 
