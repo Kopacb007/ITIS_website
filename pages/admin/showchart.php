@@ -41,6 +41,7 @@ $jsonStr = array(
 ?>
 
 <div class="animated fadeInUp">
+<<<<<<< HEAD
     <div class="col-xs-12 col-md-8 col-md-offset-2">
     <h3 class="text-center"><?php echo $datasets[0]['label'] ?></h3>
         <div class="chart">
@@ -49,6 +50,15 @@ $jsonStr = array(
     </div>
 </div>
 
+=======
+	<div class="col-xs-12 col-md-8 col-md-offset-2">
+        <h3 class="text-center"><?php echo $datasets[0]['label'] ?></h3> 
+        <div class="chart">
+		    <canvas id="myChart"></canvas>
+        </div>
+	</div>
+</div>
+>>>>>>> origin/dynamic
 <script>
     showChartLine(JSON.parse('<?php echo json_encode($jsonStr); ?>'));
 </script>
