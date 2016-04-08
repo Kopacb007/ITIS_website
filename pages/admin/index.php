@@ -65,13 +65,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img <?php echo $user['img_source']; ?> class="img-circle" alt="User Image">
                     <p>
                       <?php echo $user['fullname']; ?>
-                      <small>Member since Nov. 2012</small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile <span><i class="fa fa-cogs"></i></span></a>
+                      <a href="?page=profile" class="btn btn-default btn-flat">Profile <span><i class="fa fa-cogs"></i></span></a>
                     </div>
                     <div class="pull-right">
                       <a href="logout.php" class="btn btn-default btn-flat">Sign out <span><i class="fa fa-sign-out"></i></span></a>
@@ -201,6 +200,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     break;
                 case 'grafico':
                     include('grafico.php');
+                    break;
+                case 'profile':
+                    include('profile.php');
                     break;
                     
                 default:

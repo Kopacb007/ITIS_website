@@ -50,7 +50,6 @@
 		$data = mysqli_fetch_assoc($r);
 
 		$data['fullname'] = $data['first'] . ' ' . $data['last'];
-
 		$data['fullname_reverse'] = $data['last'] . ' ' . $data['first'];
 		$data['img_source'] = 'src="'.$data['avatar'].'"';
 

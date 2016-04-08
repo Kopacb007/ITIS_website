@@ -32,7 +32,6 @@ function goTo(url) {
 }
 
 function showChartLine(data) {
-    
     Chart.defaults.global.responsive = true;
     // Get the context of the canvas element we want to select
     var myLineChart = document.getElementById("myChart").getContext("2d");
