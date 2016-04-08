@@ -1,10 +1,3 @@
-<div class="animated fadeInUp">
-	<div class="col-xs-12">
-        <div class="chart">
-		    <canvas id="myChart"></canvas>
-        </div>
-	</div>
-</div>
 <?php
 
 $labels = array();
@@ -46,6 +39,15 @@ $jsonStr = array(
 );
 
 ?>
+
+<div class="animated fadeInUp">
+	<div class="col-xs-12 col-md-8 col-md-offset-2">
+        <h3 class="text-center"><?php echo $datasets[0]['label'] ?></h3> 
+        <div class="chart">
+		    <canvas id="myChart"></canvas>
+        </div>
+	</div>
+</div>
 <script>
     showChartLine(JSON.parse('<?php echo json_encode($jsonStr); ?>'));
 </script>
