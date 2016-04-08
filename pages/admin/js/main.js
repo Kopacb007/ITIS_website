@@ -31,10 +31,10 @@ function goTo(url) {
   // $("#content").load("maincontent.php");
 }
 
-function showChartLine(data) {
+function showChartLine(canvasid, data) {
     Chart.defaults.global.responsive = true;
     // Get the context of the canvas element we want to select
-    var myLineChart = document.getElementById("myChart").getContext("2d");
+    var LineChart = document.getElementById(canvasid).getContext("2d");
     
     var options = {
         ///Boolean - Whether grid lines are shown across the chart
@@ -82,6 +82,64 @@ function showChartLine(data) {
         //String - A legend template
         legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
-};
-    return new Chart(myLineChart).Line(data, options);
+    };
+    return new Chart(LineChart).Line(data, options);
+}
+
+function test() {
+    var selector = document.getElementById('users');
+    var value = selector[selector.selectedIndex].value;
+	var url = "showprofile.php";
+    
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: { user_id : value },
+        success: function(data, status){
+            $("#result").html(data);
+        }
+    });
+}
+
+function save_f() {
+    var url = "showprofile.php";
+    var selector = document.getElementById('users');
+    var useridVal = selector[selector.selectedIndex].value;
+    selector = document.getElementById('nome');
+    var nomeVal = selector.value;
+    selector = document.getElementById('cognome');
+    var cognomeVal = selector.value;
+    selector = document.getElementById('telefono');
+    var telefonoVal = selector.value;
+    selector = document.getElementById('cellulare');
+    var cellulareVal = selector.value;
+    selector = document.getElementById('email');
+    var emailVal = selector.value;
+    selector = document.getElementById('password');
+    var passwordVal = selector.value;
+    selector = document.getElementById('newpass');
+    var newpassVal = selector.value;
+    selector = document.getElementById('repass');
+    var repassVal = selector.value;
+    
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: 
+        { 
+            save : true,
+            userid : useridVal,
+            nome : nomeVal,
+            cognome : cognomeVal,
+            telefono : telefonoVal,
+            cellulare : cellulareVal,
+            email : emailVal,
+            password : passwordVal,
+            newpass : newpassVal,
+            repass : repassVal
+        },
+        success: function(data){
+            $("#result").html(data);
+        }
+    });
 }

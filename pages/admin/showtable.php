@@ -1,3 +1,9 @@
+<?php 
+if (mysqli_num_rows($r) <= 0) {
+    $message = "No data";
+    include('popup.php');
+    die();
+} ?>
 <div class="animated fadeInUp">
 	<div class="col-xs-12">
 		<div class="box">
@@ -6,17 +12,10 @@
 					<thead>
 						<tr>
 							<?php
-	                        if (mysqli_num_rows($r) > 0) {
 	                            $row = mysqli_fetch_assoc($r);
 	                            foreach ($row as $key => $value) { ?>
 	                                <th><?php echo $key; ?></th>
 	                            <?php } ?>
-	                        <?php } else {
-	                            $message = "No data";
-	                            include('popup.php');
-	                            die();
-	                        }
-	                        ?> 
 						</tr>
 					</thead>
 					<tbody>

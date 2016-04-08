@@ -1,12 +1,3 @@
-<?php 
-
-if (isset($_POST['show'])) {
-	$user = data_user($dbc, $_POST['user_id']);
-}
-
-?>
-
-
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
 	    <div class="box box-solid box-info">
@@ -17,7 +8,7 @@ if (isset($_POST['show'])) {
 	            <form method="post" action="">
 	                <div class="form-group">
 		                <label>User:</label>
-		                <select name="user_id">
+		                <select name="user_id" id="users">
 
 		                    <?php 
 		                        $users = get_users($dbc);
@@ -41,7 +32,7 @@ if (isset($_POST['show'])) {
 		                    <a href="#" onclick="goTo('maincontent.php')" class="btn btn-danger"><span><i class="fa fa-chevron-left"></i></span> Back</a>
 		                </div>
 		                <div class="col-xs-6">
-		                    <button type="submit" name="show" class="btn btn-success pull-right"><span><i class="fa fa-plus"></i></span> Show</button>
+		                    <button type="button" onclick="test()" name="show" class="btn btn-success pull-right"><span><i class="fa fa-plus"></i></span> Show</button>
 		                </div>
                 	</div>
 	            </form>
@@ -49,9 +40,6 @@ if (isset($_POST['show'])) {
 	    </div>
     </div>
 
-    <?php 
-	    if (isset($user)) {
-	        include('showprofile.php');
-	    }
-    ?>
+    <div id="result">
+    </div>
 </div>
