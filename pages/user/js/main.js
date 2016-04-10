@@ -98,10 +98,8 @@ function showProfile() {
 }
 
 function saveProfile() {
-    var url = "showprofile.php";
-    var selector = document.getElementById('users');
-    var useridVal = selector[selector.selectedIndex].value;
-    selector = document.getElementById('nome');
+    var url = "saveprofile.php";
+    var selector = document.getElementById('nome');
     var nomeVal = selector.value;
     selector = document.getElementById('cognome');
     var cognomeVal = selector.value;
@@ -124,7 +122,6 @@ function saveProfile() {
         data: 
         { 
             save : true,
-            userid : useridVal,
             nome : nomeVal,
             cognome : cognomeVal,
             telefono : telefonoVal,
@@ -135,7 +132,7 @@ function saveProfile() {
             repass : repassVal
         },
         success: function(data){
-            $("#result").html(data);
+            $("#content").html(data);
         }
     });
 }

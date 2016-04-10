@@ -2,19 +2,26 @@
 
 if (isset($_POST['show'])) {
 
-	$user_id = $_POST['user_id'];
-    
-    $cond = "WHERE users.id = $user_id ORDER BY permessi.da_data DESC";
+	$classe_id = mysqli_fetch_assoc(get_users_classe($dbc, $user['id']))['id'];
+	$materia_id = $_POST['materia_id'];
+
+	if ($materia_id === "all_materia") {
+		$cond = "WHERE classi.id = $classe_id ORDER BY compiti.data DESC";
+	} else {
+		$cond = "WHERE classi.id = $classe_id AND materie.id = '$materia_id' ORDER BY compiti.data DESC";
+	}
 
 	$q = "SELECT
-        permessi.da_data AS 'Da Data', 
-        permessi.a_data AS 'A Data', 
-        permessi.tipo_permesso AS Tipo,
-        permessi.ora AS Ora,
-        permessi.giorni AS Giorni
-        FROM permessi 
-        INNER JOIN tipo_permesso ON tipo_permesso.id = permessi.tipo_permesso
-        INNER JOIN users ON users.id = permessi.user_id
+        compiti.data AS Data, 
+        compiti.descrizione AS Descrizione, 
+        compiti.data_consegna AS 'Data Consegna', 
+        CONCAT(docenti.cognome, ' ', docenti.nome) AS 'Docente', 
+        materie.name AS Materia, 
+        compiti.allegati AS Allegati
+        FROM compiti 
+        INNER JOIN classi ON classi.id = compiti.classe_id
+        INNER JOIN docenti ON docenti.id = compiti.docente_id
+        INNER JOIN materie ON materie.id = compiti.materia_id
         $cond";
 	$r = mysqli_query($dbc, $q) or die(mysql_error());
 
@@ -27,28 +34,24 @@ if (isset($_POST['show'])) {
 
         <div class="box box-solid box-info">
             <div class="box-header with-border text-center">
-                <h3 class="box-title">Permessi</h3>
+                <h3 class="box-title">Compiti assegnati</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form method="post" action="">
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label>User:</label>
-                                <select name="user_id">
+                                <label>Materia:</label>
+                                <select name="materia_id" class="short">
+                                    <option value="all_materia">
+                                        All materia
+                                    </option>
 
                                     <?php 
-                                        $users = get_users($dbc);
-                                        while (
-                                            ($user = mysqli_fetch_assoc($users)) and
-                                            ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
-                                            ) { ?>
-                                            <option value=<?php echo "\"".$user['id']."\"" ?>>
-                                                <?php echo $user['first'] ?>
-                                                <?php echo $user['last'] ?>,
-                                                <?php echo $classe['numero'] ?>
-                                                <?php echo $classe['lettera'] ?> 
-                                                <?php echo $classe['indirizzo_id'] ?>
+                                        $materie = get_materie($dbc);
+                                        while ($materia = mysqli_fetch_assoc($materie)) { ?>
+                                            <option value=<?php echo "\"".$materia['id']."\"" ?>>
+                                            <?php echo $materia['name'] . ", " . $materia['id'] ?>
                                             </option>
                                     <?php } ?>
 

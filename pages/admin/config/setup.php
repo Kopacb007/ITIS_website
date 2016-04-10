@@ -32,6 +32,5 @@ $indirizzi = data_indirizzi($dbc);
 
 #User setup:
 $user = data_user($dbc, $_SESSION['userid']);
-$user['ip'] = getIpAddress();
 
  ?>

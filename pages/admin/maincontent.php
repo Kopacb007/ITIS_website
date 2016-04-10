@@ -26,11 +26,9 @@ if ((!isset($_SESSION['userid'])) || ($_SESSION['type'] !== 'admin'))
         <div class="box-body">
           <p>
             <?php 
-              $date = getdate(); 
-              echo 'Ultimo accesso il: '.$date['mday'].'/'.$date['mon'].'/'.$date['year'];
-              echo ' alle ore: '.$date['hours'].':'.$date['minutes'];
+              echo 'Ultimo accesso il: '.$_SESSION['last_session'];
             ?> 
-            dall'ip <?php echo $user['ip']; ?>
+            dall'ip <?php echo $_SESSION['last_ip']; ?>
           </p>
         </div><!-- /.box-body -->
       </div>

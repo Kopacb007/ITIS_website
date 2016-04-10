@@ -2,7 +2,7 @@
 
 if (isset($_POST['show'])) {
 
-	$classe_id = $_POST['classe_id'];
+	$classe_id = mysqli_fetch_assoc(get_users_classe($dbc, $user['id']))['id'];
 	$materia_id = $_POST['materia_id'];
 
 	if ($materia_id === "all_materia") {
@@ -39,30 +39,7 @@ if (isset($_POST['show'])) {
             <div class="box-body">
                 <form method="post" action="">                    
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>User:</label>
-                                <select name="classe_id">
-
-                                    <?php 
-                                        $users = get_users($dbc);
-                                        while (
-                                            ($user = mysqli_fetch_assoc($users)) and
-                                            ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
-                                            ) { ?>
-                                            <option value=<?php echo "\"".$classe['id']."\"" ?>>
-                                                <?php echo $user['first'] ?>
-                                                <?php echo $user['last'] ?>,
-                                                <?php echo $classe['numero'] ?>
-                                                <?php echo $classe['lettera'] ?> 
-                                                <?php echo $classe['indirizzo_id'] ?>
-                                            </option>
-                                    <?php } ?>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
+                        <div class="col-xs-12">
                             <div class="form-group">
                                 <label>Materia:</label>
                                 <select name="materia_id" class="short">

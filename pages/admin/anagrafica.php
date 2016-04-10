@@ -29,31 +29,36 @@ if (isset($_POST['show'])) {
 
         <div class="box box-solid box-info">
             <div class="box-header with-border text-center">
-                <h3 class="box-title">Dati Anagrafici Form</h3>
+                <h3 class="box-title">Dati anagrafici</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form method="post" action="">
-                    <div class="form-group">
-                    <label>User:</label>
-                    <select name="user_id">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>User:</label>
+                                <select name="user_id">
 
-                        <?php 
-                            $users = get_users($dbc);
-                            while (
-                                ($user = mysqli_fetch_assoc($users)) and
-                                ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
-                                ) { ?>
-                                <option value=<?php echo "\"".$user['id']."\"" ?>>
-                                    <?php echo $user['first'] ?>
-                                    <?php echo $user['last'] ?>,
-                                    <?php echo $classe['numero'] ?>
-                                    <?php echo $classe['lettera'] ?> 
-                                    <?php echo $classe['indirizzo_id'] ?>
-                                </option>
-                        <?php } ?>
+                                    <?php 
+                                        $users = get_users($dbc);
+                                        while (
+                                            ($user = mysqli_fetch_assoc($users)) and
+                                            ($classe = mysqli_fetch_assoc(get_users_classe($dbc, $user['id'])))
+                                            ) { ?>
+                                            <option value=<?php echo "\"".$user['id']."\"" ?>>
+                                                <?php echo $user['first'] ?>
+                                                <?php echo $user['last'] ?>,
+                                                <?php echo $classe['numero'] ?>
+                                                <?php echo $classe['lettera'] ?> 
+                                                <?php echo $classe['indirizzo_id'] ?>
+                                            </option>
+                                    <?php } ?>
 
-                    </select>
+                                </select>
+                            </div>
+                        </div>
                     </div>
+                    
                     
                     <div class="row">
                     <div class="col-xs-6">

@@ -32,7 +32,7 @@
 		                    <a href="#" onclick="goTo('maincontent.php')" class="btn btn-danger"><span><i class="fa fa-chevron-left"></i></span> Back</a>
 		                </div>
 		                <div class="col-xs-6">
-		                    <button type="button" onclick="test()" name="show" class="btn btn-success pull-right"><span><i class="fa fa-plus"></i></span> Show</button>
+		                    <button type="button" onclick="showProfile()" name="show" class="btn btn-success pull-right"><span><i class="fa fa-plus"></i></span> Show</button>
 		                </div>
                 	</div>
 	            </form>

@@ -24,7 +24,7 @@ if (isset($_POST['create'])) {
 	<div class="col-md-6 col-md-offset-3 animated fadeInRight">
 		<div class="box box-solid box-info">
 			<div class="box-header with-border text-center">
-			  <h3 class="box-title">Create Form</h3>
+			  <h3 class="box-title">Add page</h3>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 				<form method="post" action="">

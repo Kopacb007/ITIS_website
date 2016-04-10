@@ -2,7 +2,9 @@
 <?php 
 
 #Start the session:
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 #Checking the session
 if ((!isset($_SESSION['userid'])) || ($_SESSION['type'] !== 'student')) 
@@ -10,8 +12,7 @@ if ((!isset($_SESSION['userid'])) || ($_SESSION['type'] !== 'student'))
     header('Location: ../login/index.php');
 }
 
-
- ?>
+?>
 
 <?php include('config/setup.php') ?>
 
@@ -26,6 +27,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <?php include('template/header.php') ?>
   </head>
 
+  <?php include('config/js.php') ?>
+  
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -33,11 +36,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">5L</span>
+          <span class="logo-mini"><?php echo $classe['numero'] . $classe['lettera']; ?></i></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">5L Informatica</span>
+          <span class="logo-lg"><?php echo $classe['numero'] . $classe['lettera'] . " " . $classe['indirizzo_id']; ?></span>
         </a>
 
         <!-- Header Navbar -->
@@ -64,13 +67,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img <?php echo $user['img_source']; ?> class="img-circle" alt="User Image">
                     <p>
                       <?php echo $user['fullname']; ?>
-                      <small>Member since Nov. 2012</small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile <span><i class="fa fa-cogs"></i></span></a>
+                      <a href="?page=profile" class="btn btn-default btn-flat">Profile <span><i class="fa fa-cogs"></i></span></a>
                     </div>
                     <div class="pull-right">
                       <a href="logout.php" class="btn btn-default btn-flat">Sign out <span><i class="fa fa-sign-out"></i></span></a>
@@ -94,54 +96,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="treeview">
               <a href="#"><i class="fa fa-eye"></i><span>Visualizza</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Voti</a></li>
-                <li><a href="#">Voti per obiettivi</a></li>
-                <li><a href="#">Assenze</a></li>
-                <li><a href="#">Assenze in dettaglio</a></li>
-                <li><a href="#">Indicatori</a></li>
-                <li><a href="#">Argomenti svolti</a></li>
-                <li><a href="#">Compiti assegnati</a></li>
-                
-                <li><a href="#">Valutazione primo periodo</a></li>
-                <li><a href="#">Valutazione finale</a></li>
-                <li><a href="#">Pagelle primo periodo</a></li>
-                <li><a href="#">Pagelle Finali</a></li>
-                
-                <li><a href="#">Scheda di valutazione IRC</a></li>
+                <li><a href="?page=voti">Voti</a></li>
+                <li><a href="?page=assenze">Assenze</a></li>
+                <li><a href="?page=argomenti">Argomenti svolti</a></li>
+                <li><a href="?page=compiti">Compiti assegnati</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#"><i class="fa fa-bell"></i> <span>Notifiche</span> <i class="fa fa-angle-left pull-right"></i></a>              
               <ul class="treeview-menu">
-                <li><a href="#">Comunicazioni</a></li>
-                <li><a href="#">Comunicazioni per data</a></li>
-                <li><a href="#">Comunicazioni personali</a></li>
-                <li><a href="#">Comunicazioni alle famiglie</a></li>
-                <li><a href="#">Provvedimenti disciplinari</a></li>
+                <li><a href="?page=comunicazioni">Comunicazioni</a></li>
+                <li><a href="?page=compersonali">Comunicazioni personali</a></li>
+                <li><a href="?page=provvedimenti">Provvedimenti disciplinari</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#"><i class="fa fa-bar-chart"></i> <span>Statistica</span> <i class="fa fa-angle-left pull-right"></i></a>              
               <ul class="treeview-menu">
-                <li><a href="#">Grafico</a></li>
-                <li><a href="#">Andamento generale</a></li>
+                <li><a href="?page=grafico">Grafico</a></li>
               </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-calendar"></i>
-                <span>Calendario</span>
-              </a>
             </li>
             <li class="treeview">
               <a href="#"><i class="fa fa-book"></i> <span>Other</span> <i class="fa fa-angle-left pull-right"></i></a>              
               <ul class="treeview-menu">
-                <li><a href="#">Permessi</a></li>
-                <li><a href="#">Docenti</a></li>
-                <li><a href="#">Programmi didattici</a></li>
-                <li><a href="#">Documenti didattici</a></li>
-                <li><a href="#">Dati anagrafici</a></li>
-                <li><a href="#">Prenotazione colloqui</a></li>
+                <li><a href="?page=permessi">Permessi</a></li>
+                <li><a href="?page=docenti">Docenti</a></li>
+                <li><a href="?page=anagrafica">Dati anagrafici</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->
@@ -155,93 +135,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <section class="content-header">
           <h1>
             Registro Scolastico Elettronico
-            <small>Versione per studenti</small>
+            <small>Versione per Studenti</small>
           </h1>
         </section>
 
         <!-- Main content -->
-        <section class="content">
-          
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box box-solid box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Info</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  </div><!-- /.box-tools -->
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <p>
-                    <?php 
-                      $date = getdate(); 
-                      echo 'Ultimo accesso il: '.$date['mday'].'/'.$date['mon'].'/'.$date['year'];
-                      echo ' alle ore: '.$date['hours'].':'.$date['minutes'];
-                    ?> 
-                    dall'ip <?php echo $user['ip']; ?>
-                  </p>
-                </div><!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+        <section class="content" id="content">
 
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box box-primary">
-                <div class="box-header">
-                  <h3 class="box-title">Riepilogo degli eventi recenti</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                  <table class="table table-striped">
-                    <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Data</th>
-                      <th>Status</th>
-                      <th>Informazioni</th>
-                    </tr>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-success">Voto</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-warning">Comunicazione</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-primary">Circolare</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-danger">Nota</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                  </table>
-                </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-          <!-- Your Page Content Here -->
+          <?php 
+
+            $page = isset($_GET['page']) ? trim($_GET['page']) : '' ;
+
+            switch ($page) {
+                case 'voti':
+                    include('voti.php');
+                    break;
+                case 'assenze':
+                    include('assenze.php');
+                    break;
+                case 'argomenti':
+                    include('argomenti.php');
+                    break;
+                case 'compiti':
+                    include('compiti.php');
+                    break;
+                case 'comunicazioni':
+                    include('comunicazioni.php');
+                    break;
+                case 'compersonali':
+                    include('compersonali.php');
+                    break;
+                case 'provvedimenti':
+                    include('provvedimenti.php');
+                    break;
+                case 'permessi':
+                    include('permessi.php');
+                    break;
+                case 'docenti':
+                    include('docenti.php');
+                    break;
+                case 'anagrafica':
+                    include('anagrafica.php');
+                    break;
+                case 'grafico':
+                    include('grafico.php');
+                    break;
+                case 'profile':
+                    include('profile.php');
+                    break;
+                    
+                default:
+                    include('maincontent.php');
+                    break;
+            }
+           ?>
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
@@ -250,14 +197,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Anything you want
+          Powered by AdminLTE
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Stanislav</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="#">Stanislav</a>.</strong>
       </footer>
 
     </div><!-- ./wrapper -->
-
-    <?php include('config/js.php') ?>
   </body>
 </html>

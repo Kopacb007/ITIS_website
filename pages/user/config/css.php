@@ -11,3 +11,7 @@
       apply the skin class to the body tag so the changes take effect.
 -->
 <link rel="stylesheet" href="../../bower_components/AdminLTE/dist/css/skins/skin-blue.min.css">
+<!-- Animate CSS -->
+<link rel="stylesheet" href="../../bower_components/animate.css/animate.min.css">
+<!--Custom CSS-->
+<link rel="stylesheet" href="css/custom.css">

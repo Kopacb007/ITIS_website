@@ -2,7 +2,9 @@
 <?php 
 
 #Start the session:
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 #Checking the session
 if ((!isset($_SESSION['userid'])) || ($_SESSION['type'] !== 'admin')) 
@@ -10,7 +12,7 @@ if ((!isset($_SESSION['userid'])) || ($_SESSION['type'] !== 'admin'))
     header('Location: ../login/index.php');
 }
 
- ?>
+?>
 
 <?php include('config/setup.php') ?>
 
@@ -34,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><i class="fa fa-tachometer"></i></span>
           <!-- logo for regular state and mobile devices -->
@@ -119,14 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="#"><i class="fa fa-bar-chart"></i> <span>Statistica</span> <i class="fa fa-angle-left pull-right"></i></a>              
               <ul class="treeview-menu">
                 <li><a href="?page=grafico">Grafico</a></li>
-                <li><a href="#">Andamento generale</a></li>
               </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-calendar"></i>
-                <span>Calendario</span>
-              </a>
             </li>
             <li class="treeview">
               <a href="#"><i class="fa fa-book"></i> <span>Other</span> <i class="fa fa-angle-left pull-right"></i></a>              
@@ -218,10 +213,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Anything you want
+          Powered by AdminLTE
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Stanislav</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="#">Stanislav</a>.</strong>
       </footer>
 
     </div><!-- ./wrapper -->
