@@ -42,15 +42,18 @@
     </div>
 
     <div class="social-section text-center">
-        <a class="btn-sm-full fb-bg rectangle waves-effect waves-light"><i class="fa fa-facebook"> </i> <span>Facebook</span> </a>
+        <a href="https://www.facebook.com/ittsrimini" target="_blank" class="btn-sm-full fb-bg rectangle waves-effect waves-light"><i class="fa fa-facebook"> </i> <span>Facebook</span> </a>
         <a class="btn-sm-full tw-bg rectangle waves-effect waves-light"><i class="fa fa-twitter"> </i> <span>Twitter</span></a>
-        <a class="btn-sm-full gplus-bg rectangle waves-effect waves-light"><i class="fa fa-google-plus"> </i> <span>Google +</span></a>
+        <a href="https://www.youtube.com/user/ItisRimini" target="_blank" class="btn-sm-full youtube-bg rectangle waves-effect waves-light"><i class="fa fa-youtube-play"> </i> <span>YouTube</span></a>
     </div>
 
 
-    <div class="footer-copyright text-center rgba-black-light">
-        <div class="container-fluid">
-            © 2016 Copyright
+    <div class="row">
+        <div class="footer-copyright text-center rgba-black-light">
+            <div class="container-fluid">
+                © 2016 Copyright
+            </div>
         </div>
     </div>
+    
 </footer>

@@ -15,7 +15,7 @@ body {
 .navbar {
     margin-bottom: 0 !important;
     border-bottom: none;
-    }
+}
 
 .navbar-default {
     background-color: #2979FF;
@@ -77,11 +77,17 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
 }
 
 .carousel-text-container {
     height: 100%;
     z-index: 1;
+}
+
+.welcome-font {
+    font-family: 'Libre Baskerville', serif;
 }
 
 .va-middle>h1 {
@@ -168,6 +174,10 @@ footer .panel {
     background-color: #30CFC0;
 }
 
+.youtube-bg {
+    background-color: #ee0f0f;
+}
+
 .btn-sm-full {
     margin: 10px;
     transition: .2s ease-out;
@@ -181,8 +191,7 @@ footer .panel {
     padding: 8px;
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
-    -o-transition: .2s ease-out;
-    -ms-transition: .2s ease-out;
+    transition: .2s ease-out;
 }
 
 .btn-sm-full,
@@ -206,6 +215,7 @@ footer .panel {
 
 .rectangle, .square {
     color: #fff;
+    border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;

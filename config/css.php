@@ -9,6 +9,8 @@
 <link href="css/mdb.css" rel="stylesheet">
 <!-- Animate CSS -->
 <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">
+<!--Welcome font by Google-->
+<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
 <!-- Material Design Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Font Awesome -->

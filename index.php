@@ -4,18 +4,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Statusbar color -->
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#2979FF">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#2979FF">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#2979FF">
-    <meta name="description" content="O. Belluzzi - L. da Vinci">
-    <meta name="author" content="ITTS">
+    <?php include('config/header.php'); ?>
     <title><?php echo $page['title'] . ' | ' . $site_title; ?></title>
 
     <!-- ################## CSS Section ##################### -->
@@ -46,7 +35,7 @@
             <div class="carousel-text-container col-xs-8 col-xs-offset-2 text-center">
                 <div class="va-container va-container-w va-container-h">
                     <div class="va-middle">
-                        <h1>WELCOME TO OUR SCHOOL</h1>
+                        <h1 class="welcome-font">Crea il tuo futuro con noi</h1>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@
             </p>
         </div>
         <div class="card-action">
-            <a>This is a link</a>
+            <a>Link</a>
         </div>
     </div>
 </div>
