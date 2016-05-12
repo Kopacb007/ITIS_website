@@ -95,15 +95,28 @@
             <div class="container text-center">
                 <h1 class="underlined">Downloads</h1>
             </div>
-            <div class="col-md-6">
-                <a href="https://play.google.com/store/apps/details?id=com.filippoalbertini.scuolamobile">
-                    <img class="img-responsive app-img center-block" alt="Get it on Google Play" src="img/google-play-badge.png" />
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="https://itunes.apple.com/it/app/scuolamobile-app/id978006941?mt=8">
-                    <img class="img-responsive app-img center-block" alt="Get it on App Store" src="img/app-store-badge.svg" />
-                </a>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="content-downloads clearfix">
+                        <div class="phone">
+                            <img src="img/phone.png" class="img-responsive"/>
+                        </div>
+                        <div class="download-links flex-center">
+                            <div class="flex-item">
+                                <div class="col-md-6">
+                                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.filippoalbertini.scuolamobile">
+                                        <img class="img-responsive app-img center-block" alt="Get it on Google Play" src="img/google-play-badge.png" />
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a target="_blank" href="https://itunes.apple.com/it/app/scuolamobile-app/id978006941?mt=8">
+                                        <img class="img-responsive app-img center-block" alt="Get it on App Store" src="img/app-store-badge.svg" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.row -->

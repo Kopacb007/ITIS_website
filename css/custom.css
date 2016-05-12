@@ -134,6 +134,37 @@ body {
     margin-bottom: 1em;
 }
 
+#downloads .content-downloads {
+    height: 500px;
+    position: relative;
+}
+
+#downloads div.phone {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#downloads div.phone img {
+    height: 100%;
+    margin: 0 auto;
+}
+
+#downloads div.download-links {
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.flex-center {
+    /*https://goo.gl/pMVBPE*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*SECTION footer*/
 footer .panel {
     background-color: inherit;
