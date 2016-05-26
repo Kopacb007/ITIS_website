@@ -1,0 +1,25 @@
+.login-page {
+    background: none;
+}
+.login-logo {
+    margin: 10% 0 0 0;
+    font-size: 25px;
+}
+
+.login-box {
+    width: 460px;
+    margin: 130px auto 0px auto;
+}
+
+.form-control {
+    border-radius: 3px;
+}
+.btn-primary {
+    background-color: #0070ba;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #d62d20;
+    border: none;       
+}

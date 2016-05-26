@@ -26,7 +26,10 @@
                     <a data-scroll href="#about">About</a>
                 </li>
                 <li>
-                    <a href="../pages/login/index.php">Log in <i class="fa fa-sign-in"></i></a>
+                    <a href="../pages/login/index.php">
+                    <strong>Log in </strong>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    </a>
                     
                 </li>
             </ul>

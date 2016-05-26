@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <div class="card hoverable">
+    <div class="card hoverable transparent">
         <div class="card-image">
             <div class="view overlay hm-white-slight z-depth-1">
                 <img src=<?php echo '"'.$card['image'].'"'; ?> class="img-responsive" alt="">

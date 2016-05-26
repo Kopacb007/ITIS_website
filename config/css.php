@@ -1,8 +1,3 @@
-<?php 
-// CSS:
-
-
- ?>
 <!-- Bootstrap Core CSS -->
 <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->

@@ -98,10 +98,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="content-downloads clearfix">
-                        <div class="phone">
+                        <div class="phone transparent">
                             <img src="img/phone.png" class="img-responsive"/>
                         </div>
-                        <div class="download-links flex-center">
+                        <div class="download-links flex-center transparent">
                             <div class="flex-item">
                                 <div class="col-md-6">
                                     <a target="_blank" href="https://play.google.com/store/apps/details?id=com.filippoalbertini.scuolamobile">
@@ -124,7 +124,18 @@
     <!-- /.container-fluid -->
     <!--Footer section-->
     <?php include(D_TEMPLATE . '/footer.php') ?>
-
+    <!--Back to top button-->
+    <div class="back-to-top">
+        <div class="fill-div flex-center">
+            <div class="flex-item">
+                <a class=" text-center">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+        
+        
     <!-- ################## SCRIPTS Section ##################### -->
     <?php include('config/js.php'); ?>
 
