@@ -5,7 +5,7 @@ if (mysqli_num_rows($r) <= 0) {
     die();
 } ?>
 <div class="animated fadeInUp">
-	<div class="col-xs-6 col-xs-offset-3">
+	<div class="col-xs-10 col-xs-offset-1">
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">
