@@ -33,8 +33,8 @@
             <div class="col-md-4 text-center">
                 <p class="column-title white-text">ITTS "O. Belluzzi – L. da Vinci"</p>
                 <div class="column-content">
-                    <p class="thin-100 white-text">Il sito realizzato da Stanislav
-                </p>
+                    <p class="thin-100 white-text">Il sito realizzato da Stanislav</p>
+                </div>
             </div>
             <!--/.Third column-->
 
