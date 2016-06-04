@@ -13,7 +13,7 @@ body {
 /*get rid of default navbar's properties*/
 
 .navbar {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
     border-bottom: none;
 }
 
@@ -76,7 +76,7 @@ body {
     background-size: cover;
 }
 
-.swiper-container > div.carousel-foreground {
+.carousel-foreground {
     position: absolute;
     top: 0;
     right: 0;
@@ -139,24 +139,24 @@ body {
     margin-bottom: 1em;
 }
 
-#downloads .content-downloads {
+.content-downloads {
     height: 500px;
     position: relative;
 }
 
-#downloads div.phone {
+.phone {
     position: relative;
     float: left;
     width: 50%;
     height: 100%;
 }
 
-#downloads div.phone img {
+.phone img {
     height: 100%;
     margin: 0 auto;
 }
 
-#downloads div.download-links {
+.download-links {
     position: relative;
     float: right;
     width: 50%;
@@ -201,7 +201,7 @@ footer .panel {
     background: none;
     margin: 0;
     bottom: 60px;
-    right: 0px;
+    right: 0;
     width: 32px;
     height: 32px;
     z-index: 100;
@@ -254,7 +254,7 @@ footer .panel {
 .btn-sm, .btn-sm-full {
     cursor: pointer;
     position: relative;
-    outline: 0!important;
+    outline: 0 !important;
     display: inline-block;
     padding: 8px;
     -webkit-transition: .2s ease-out;
@@ -283,11 +283,11 @@ footer .panel {
 
 .rectangle, .square {
     color: #fff;
-    border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
+    border-radius: 2px;
 }
 
 .rectangle {

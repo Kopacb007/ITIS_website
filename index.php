@@ -9,6 +9,8 @@
 
     <!-- ################## CSS Section ##################### -->
     <?php include('config/css.php'); ?>
+    <!-- ################## SCRIPTS Section ##################### -->
+    <?php include('config/js.php'); ?>
 </head>
 
 <body>
@@ -134,11 +136,7 @@
             </div>
         </div>
     </div>
-        
-        
-    <!-- ################## SCRIPTS Section ##################### -->
-    <?php include('config/js.php'); ?>
-
+    
 </body>
 
 </html>

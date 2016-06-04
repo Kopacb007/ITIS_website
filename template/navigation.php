@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top shadow-bottom" role="navigation" data-scroll-header>
+<nav class="navbar navbar-default navbar-fixed-top shadow-bottom" data-scroll-header>
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
