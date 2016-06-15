@@ -144,24 +144,24 @@ body {
     position: relative;
 }
 
-.phone {
+/*.phone {
     position: relative;
     float: left;
     width: 50%;
     height: 100%;
-}
+}*/
 
-.phone img {
+/*.phone img {
     height: 100%;
     margin: 0 auto;
-}
+}*/
 
-.download-links {
+/*.download-links {
     position: relative;
     float: right;
     width: 50%;
     height: 100%;
-}
+}*/
 
 .flex-center {
     /*https://goo.gl/pMVBPE*/
@@ -293,4 +293,20 @@ footer .panel {
 .rectangle {
     padding: 10px 32px;
     border-radius: 2px;
+}
+
+/*Media query section*/
+@media only screen and (max-width: 767px){
+    .phone {
+        display: none;
+    }
+    .download-links {
+        min-height: 200px;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .flex {
+        display: flex;
+    }
 }
