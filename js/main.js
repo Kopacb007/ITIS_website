@@ -53,7 +53,7 @@ $(document).ready(function() {
        $('#downloads .download-links').addClass('animated fadeInUp');
     },
     {
-        offset: '50%'
+        offset: '65%'
     });
     // scrollspy
     $('body').scrollspy({ 
